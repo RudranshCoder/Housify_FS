@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Properties | Housify</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/listings.css">
+</head>
+<body>
+
+  <nav class="navbar scrolled"> 
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        Housify
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="listings.html?purpose=sale">Buy</a></li>
+        <li><a href="listings.html?purpose=rent">Rent</a></li>
+        <li><a href="listings.html">Sell</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+      <div class="nav-auth"></div>
+      <div class="mobile-toggle"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <main class="listings-page">
+    <div class="container listings-container">
+
+      <aside class="sidebar-filters" id="sidebar-filters">
+        <div class="sidebar-header flex-between">
+          <h3>Filters <span id="active-filter-badge" class="badge">0</span></h3>
+          <button id="clear-all" class="clear-btn">Clear All</button>
+        </div>
+
+        <div class="filter-group">
+          <label>Search</label>
+          <div class="search-input-wrap">
+            <i class="fas fa-search"></i>
+            <input type="text" id="filter-search" placeholder="City, area, or landmark...">
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>Purpose</label>
+          <div class="pill-toggle" id="filter-purpose">
+            <button class="pill" data-value="sale">Buy</button>
+            <button class="pill" data-value="rent">Rent</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>Property Type</label>
+          <div class="pill-toggle scrollable" id="filter-type">
+            <button class="pill active" data-value="">All</button>
+            <button class="pill" data-value="house">House</button>
+            <button class="pill" data-value="apartment">Apartment</button>
+            <button class="pill" data-value="villa">Villa</button>
+            <button class="pill" data-value="plot">Plot</button>
+            <button class="pill" data-value="commercial">Commercial</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>Price Range</label>
+          <div class="price-values flex-between">
+             <span id="price-min-val">₹0</span>
+             <span id="price-max-val">₹5 Cr+</span>
+          </div>
+          <div class="dual-range-slider" id="price-slider">
+            <div class="slider-track"></div>
+            <input type="range" id="price-min" min="0" max="500" value="0" step="5">
+            <input type="range" id="price-max" min="0" max="500" value="500" step="5">
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>BHK</label>
+          <div class="pill-toggle multi" id="filter-bhk">
+            <button class="pill" data-value="1">1</button>
+            <button class="pill" data-value="2">2</button>
+            <button class="pill" data-value="3">3</button>
+            <button class="pill" data-value="4">4</button>
+            <button class="pill" data-value="5">4+</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>Furnished Status</label>
+          <div class="pill-toggle" id="filter-furnished">
+            <button class="pill" data-value="furnished">Full</button>
+            <button class="pill" data-value="semi-furnished">Semi</button>
+            <button class="pill" data-value="unfurnished">Un</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>Area (sq ft)</label>
+          <div class="flex gap-10">
+            <input type="number" id="filter-min-area" placeholder="Min" class="small-input">
+            <input type="number" id="filter-max-area" placeholder="Max" class="small-input">
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>Must-Haves</label>
+          <div class="checkbox-grid">
+            <label class="check-container">Pool <input type="checkbox" value="pool"><span class="checkmark"></span></label>
+            <label class="check-container">Parking <input type="checkbox" value="parking"><span class="checkmark"></span></label>
+            <label class="check-container">Lift <input type="checkbox" value="lift"><span class="checkmark"></span></label>
+            <label class="check-container">Garden <input type="checkbox" value="garden"><span class="checkmark"></span></label>
+            <label class="check-container">Power <input type="checkbox" value="powerBackup"><span class="checkmark"></span></label>
+            <label class="check-container">Pets <input type="checkbox" value="petFriendly"><span class="checkmark"></span></label>
+            <label class="check-container">Security <input type="checkbox" value="security"><span class="checkmark"></span></label>
+            <label class="check-container">Gym <input type="checkbox" value="gym"><span class="checkmark"></span></label>
+          </div>
+        </div>
+
+        <button class="btn btn-primary w-100" id="apply-filters-btn">Apply Filters</button>
+      </aside>
+
+      <section class="results-area">
+        <div class="results-top flex-between">
+          <div class="results-info">
+            <h2 id="results-count">Showing 0 properties</h2>
+            <p class="text-muted" id="results-query-desc">All listings in India</p>
+          </div>
+          <div class="results-controls flex">
+            <div class="sort-wrap">
+              <select id="sort-select">
+                <option value="newest">Newest First</option>
+                <option value="price_asc">Price: Low to High</option>
+                <option value="price_desc">Price: High to Low</option>
+                <option value="views">Most Viewed</option>
+              </select>
+            </div>
+            <div class="view-toggle flex">
+              <button class="active" id="view-grid" title="Grid View"><i class="fas fa-th-large"></i></button>
+              <button id="view-list" title="List View"><i class="fas fa-list"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div id="homes-grid" class="grid-3 property-grid">
+          
+        </div>
+
+        <div id="empty-state" class="empty-state hidden">
+          <div class="empty-icon"><i class="fas fa-home"></i></div>
+          <h3>No properties found</h3>
+          <p>Try adjusting your filters or search for a different city.</p>
+          <button class="btn btn-outline" onclick="resetFilters()">Clear Filters</button>
+        </div>
+
+        <div class="pagination" id="pagination">
+          
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <button class="mobile-filter-btn" id="mobile-filter-open">
+    <i class="fas fa-sliders-h"></i>
+    Filters <span class="badge" id="mobile-filter-badge">0</span>
+  </button>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom flex-between">
+        <p>© 2025 Housify. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/listings.js"></script>
+</body>
+</html>

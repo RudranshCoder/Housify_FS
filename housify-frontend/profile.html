@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Profile | Housify</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/auth.css"> 
+</head>
+<body class="bg-surface">
+
+  <nav class="navbar scrolled">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">Housify</a>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="listings.html">Browse</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+      <div class="nav-auth"></div>
+    </div>
+  </nav>
+
+  <main class="padding-v-80">
+    <div class="container flex-center">
+      <div class="auth-card register-card bg-white padding-40 shadow-sm radius-lg">
+        <div class="auth-header text-center">
+          <div class="user-avatar-large margin-auto" id="profile-avatar">US</div>
+          <h1>Profile Settings</h1>
+          <p>Manage your account details and preferences</p>
+        </div>
+
+        <form id="profile-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Full Name</label>
+              <div class="input-icon-wrap">
+                <i class="fas fa-user"></i>
+                <input type="text" id="prof-name" placeholder="Name" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <div class="input-icon-wrap">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="prof-email" disabled title="Email cannot be changed">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number</label>
+            <div class="input-icon-wrap">
+              <i class="fas fa-phone"></i>
+              <input type="text" id="prof-phone" placeholder="Phone">
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="auth-header" style="margin-top: 30px;">
+            <h3>Update Password</h3>
+            <p class="small">Leave blank if you don't want to change it</p>
+          </div>
+
+          <div class="form-group">
+            <label>New Password</label>
+            <div class="input-icon-wrap">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="prof-new-password" placeholder="Min. 8 characters">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Confirm New Password</label>
+            <div class="input-icon-wrap">
+              <i class="fas fa-shield-alt"></i>
+              <input type="password" id="prof-confirm-password" placeholder="Confirm new password">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100 btn-auth" id="save-profile-btn">
+            <span class="btn-text">Save Changes</span>
+            <div class="btn-spinner hidden"></div>
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

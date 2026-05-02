@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Details | Housify</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/property.css">
+</head>
+<body>
+
+  <nav class="navbar scrolled">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        Housify
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="listings.html?purpose=sale">Buy</a></li>
+        <li><a href="listings.html?purpose=rent">Rent</a></li>
+        <li><a href="listings.html">Sell</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+      <div class="nav-auth"></div>
+      <div class="mobile-toggle"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <main class="property-page">
+    <div id="property-loader" class="flex-center" style="height: 60vh;">
+      <div class="spinner"></div>
+    </div>
+
+    <div id="property-content" class="container property-container hidden">
+      
+      <div class="property-main">
+        
+        <div class="gallery-wrapper">
+          <div class="main-image-container" id="main-gallery-img">
+            
+          </div>
+          <div class="thumbnail-row" id="thumbnail-row">
+            
+          </div>
+        </div>
+
+        <div class="prop-header">
+           <div class="flex-between">
+             <div class="badges">
+               <span id="prop-status" class="badge">Available</span>
+               <span id="prop-purpose" class="tag" style="background: var(--primary); color: white; padding: 4px 12px; margin-left: 10px;">For Sale</span>
+             </div>
+             <button id="prop-fav-btn" class="fav-action-btn"><i class="far fa-heart"></i> Save</button>
+           </div>
+           <h1 id="prop-title" class="prop-title">Modern Luxury Villa</h1>
+           <p id="prop-address" class="prop-address"><i class="fas fa-map-marker-alt"></i> 123 Green Valley, Mumbai</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="key-stats-row">
+          <div class="stat-box">
+             <i class="fas fa-bed"></i>
+             <div class="val" id="stat-bhk">3</div>
+             <div class="lbl">BHK</div>
+          </div>
+          <div class="stat-box">
+             <i class="fas fa-bath"></i>
+             <div class="val" id="stat-bath">2</div>
+             <div class="lbl">Bathrooms</div>
+          </div>
+          <div class="stat-box">
+             <i class="fas fa-vector-square"></i>
+             <div class="val" id="stat-area">2400</div>
+             <div class="lbl">Sq. Ft.</div>
+          </div>
+          <div class="stat-box">
+             <i class="fas fa-couch"></i>
+             <div class="val" id="stat-furnished">Semi</div>
+             <div class="lbl">Furnished</div>
+          </div>
+           <div class="stat-box">
+             <i class="fas fa-building"></i>
+             <div class="val" id="stat-type">Villa</div>
+             <div class="lbl">Type</div>
+          </div>
+        </div>
+
+        <div class="prop-section">
+          <h3>Description</h3>
+          <div class="description-wrap" id="prop-description">
+            <p id="desc-text"></p>
+            <button id="read-more-btn" class="read-more hidden">Read More</button>
+          </div>
+        </div>
+
+        <div class="prop-section">
+          <h3>Amenities</h3>
+          <div class="amenities-grid" id="amenities-grid">
+            
+          </div>
+        </div>
+
+        <div class="prop-section neighborhood">
+           <h3>Neighborhood Scores</h3>
+           <div class="neighborhood-header flex-between">
+             <div class="overall-score">
+               <span>4.2</span> / 5
+               <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+             </div>
+             <div class="trust-badges flex">
+               <span class="badge-v"><i class="fas fa-check-circle"></i> Verified Listing</span>
+               <span class="badge-v"><i class="fas fa-shield-alt"></i> RERA Registered</span>
+             </div>
+           </div>
+           
+           <div class="score-bars">
+             <div class="score-item">
+               <div class="flex-between"><span>Safety</span> <span>85%</span></div>
+               <div class="progress"><div class="fill" style="width: 85%"></div></div>
+             </div>
+             <div class="score-item">
+               <div class="flex-between"><span>Connectivity</span> <span>70%</span></div>
+               <div class="progress"><div class="fill" style="width: 70%"></div></div>
+             </div>
+             <div class="score-item">
+               <div class="flex-between"><span>Amenities</span> <span>90%</span></div>
+               <div class="progress"><div class="fill" style="width: 90%"></div></div>
+             </div>
+             <div class="score-item">
+               <div class="flex-between"><span>Schools</span> <span>65%</span></div>
+               <div class="progress"><div class="fill" style="width: 65%"></div></div>
+             </div>
+           </div>
+        </div>
+
+        <div class="prop-section">
+          <h3>Location Map</h3>
+          <div id="property-map" class="map-container"></div>
+          <a href="#" id="google-maps-link" class="view-on-maps" target="_blank">View on Google Maps →</a>
+        </div>
+
+        <div class="prop-section">
+          <h3>Similar Properties in <span id="city-name-similar">City</span></h3>
+          <div id="similar-grid" class="flex overflow-x gap-20 padding-v-10">
+            
+          </div>
+        </div>
+      </div>
+
+      <aside class="property-sidebar">
+        
+        <div class="sidebar-card emi-card">
+          <h4>EMI Calculator</h4>
+          <div class="emi-inputs">
+            <div class="input-group">
+              <label>Property Price</label>
+              <div class="price-input"><span>₹</span><input type="number" id="emi-price"></div>
+            </div>
+            <div class="input-group">
+              <label>Down Payment (20%)</label>
+              <input type="range" id="emi-down-slider" min="10" max="50" value="20">
+              <div class="flex-between"><small>10%</small><span id="emi-down-val">₹0</span><small>50%</small></div>
+            </div>
+            <div class="input-group">
+              <label>Tenure (Years)</label>
+              <input type="range" id="emi-tenure-slider" min="5" max="30" value="20">
+              <div class="flex-between"><small>5y</small><span id="emi-tenure-val">20 Years</span><small>30y</small></div>
+            </div>
+          </div>
+
+          <div class="emi-results">
+            <div class="emi-item">
+               <p>Monthly EMI</p>
+               <h2 id="emi-monthly">₹0</h2>
+            </div>
+            <div class="flex-between">
+              <small>Total Interest: <span id="emi-interest">₹0</span></small>
+              <small>Total Amount: <span id="emi-total">₹0</span></small>
+            </div>
+          </div>
+
+          <div class="chart-container">
+            <canvas id="emi-chart"></canvas>
+            <div class="chart-legend">
+              <span><i class="dot principal"></i> Principal</span>
+              <span><i class="dot interest"></i> Interest</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-card contact-card">
+          <div class="owner-info flex">
+            <div class="owner-avatar" id="owner-initials">OW</div>
+            <div>
+              <h4 id="owner-name">Owner Name</h4>
+              <p class="text-muted" id="owner-role">Property Owner</p>
+            </div>
+          </div>
+          <div class="divider"></div>
+          
+          <div class="contact-details">
+            <div id="contact-masked">
+              <p><i class="fas fa-phone"></i> +91 98XXX XX123</p>
+              <button class="btn btn-outline w-100" id="reveal-contact-btn">Reveal Contact</button>
+            </div>
+            <div id="contact-real" class="hidden">
+              <p><i class="fas fa-phone"></i> <span id="owner-phone"></span></p>
+              <p><i class="fas fa-envelope"></i> <span id="owner-email"></span></p>
+            </div>
+          </div>
+
+          <button class="btn btn-primary w-100 margin-top-20" id="send-enquiry-btn">Send Enquiry</button>
+          <button class="btn btn-outline w-100 margin-top-10" id="schedule-visit-btn">Schedule a Visit</button>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <div id="lightbox" class="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+    <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+    <div class="lightbox-counter">1 / 5</div>
+  </div>
+
+  <div class="modal-overlay" id="enquiry-modal">
+    <div class="modal-box">
+       <h3>Send Enquiry</h3>
+       <p class="text-muted margin-bottom-20">The owner will get back to you shortly.</p>
+       <form id="enquiry-form">
+         <div class="filter-group">
+            <label>Message</label>
+            <textarea id="enquiry-msg" rows="4" class="small-input"></textarea>
+         </div>
+         <div class="flex gap-10">
+           <button type="button" class="btn btn-outline flex-1 modal-close">Cancel</button>
+           <button type="submit" class="btn btn-primary flex-1">Submit</button>
+         </div>
+       </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-bottom flex-between">
+      <p>© 2025 Housify. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
+  <script src="js/api.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/mortgage.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/property.js"></script>
+</body>
+</html>

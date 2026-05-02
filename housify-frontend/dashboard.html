@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Housify</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="bg-surface">
+
+  <nav class="navbar scrolled">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        Housify
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="listings.html">Browse</a></li>
+        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+      </ul>
+      <div class="nav-auth"></div>
+      <div class="mobile-toggle"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <main class="dashboard-page">
+    <div class="container">
+      
+      <header class="dashboard-header flex-between">
+        <div class="user-greeting">
+          <h1>Welcome, <span id="user-name-display">User</span></h1>
+          <p class="text-muted" id="user-role-display">Property Seller</p>
+        </div>
+        <div class="header-actions">
+           <a href="add-property.html" class="btn btn-primary" id="add-prop-btn-nav"><i class="fas fa-plus"></i> Add New Property</a>
+        </div>
+      </header>
+
+      <section class="db-stats-grid grid-4" id="stats-container">
+        
+      </section>
+
+      <div class="dashboard-main-grid">
+        
+        <section class="db-card listings-card">
+          <div class="card-header flex-between">
+            <h3 id="main-section-title">My Properties</h3>
+            <div class="card-tabs" id="dashboard-tabs">
+              <button class="tab-btn active" data-tab="active">Active</button>
+              <button class="tab-btn" data-tab="sold">Sold/Rented</button>
+              <button class="tab-btn" data-tab="pending">Pending Review</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div id="db-listings-list" class="db-list">
+               
+               <div class="flex-center" style="padding: 50px;"><div class="spinner"></div></div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="db-sidebar">
+          
+          <div class="db-card profile-preview">
+            <div class="text-center">
+               <div class="user-avatar-large" id="user-avatar-initials">US</div>
+               <h4 id="profile-name">User Name</h4>
+               <p id="profile-email" class="text-muted small">email@example.com</p>
+               <a href="profile.html" class="btn btn-outline btn-sm w-100 margin-top-15">Edit Profile</a>
+            </div>
+            <div class="divider"></div>
+            <div class="profile-stats flex-between">
+              <div>
+                <strong id="stat-props-count">0</strong>
+                <p>Properties</p>
+              </div>
+              <div class="divider-v"></div>
+              <div>
+                <strong id="stat-views-count">0</strong>
+                <p>Views</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="db-card enquiries-card" id="enquiries-section">
+            <div class="card-header">
+              <h4>Recent Enquiries</h4>
+            </div>
+            <div class="card-body">
+              <div id="enquiries-list" class="mini-list">
+                 <p class="text-muted small text-center">No recent enquiries</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="delete-modal">
+    <div class="modal-box text-center">
+       <div class="icon-danger"><i class="fas fa-exclamation-triangle"></i></div>
+       <h3>Are you sure?</h3>
+       <p class="text-muted margin-bottom-20">This action cannot be undone. This property will be permanently removed.</p>
+       <div class="flex gap-10">
+         <button class="btn btn-outline flex-1 modal-close">Cancel</button>
+         <button class="btn btn-danger flex-1" id="confirm-delete-btn">Delete</button>
+       </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-bottom text-center">
+      <p>© 2025 Housify. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

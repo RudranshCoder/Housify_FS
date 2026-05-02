@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Housify</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+</head>
+<body class="bg-surface">
+
+  <nav class="navbar scrolled">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">Housify</a>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="listings.html?purpose=sale">Buy</a></li>
+        <li><a href="listings.html?purpose=rent">Rent</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+      </ul>
+      <div class="nav-auth"></div>
+    </div>
+  </nav>
+
+  <main>
+    
+    <section class="padding-v-100 bg-white" style="background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('assets/placeholder.jpg'); background-size: cover; background-position: center;">
+      <div class="container text-center">
+        <h1 style="font-size: 56px; margin-bottom: 20px;">Redefining Your <br><span class="text-primary-color">Property Experience</span></h1>
+        <p class="max-600 margin-auto text-muted">Housify is more than just a listing platform. We are your dedicated partner in finding the space where your life happens.</p>
+      </div>
+    </section>
+
+    <section class="padding-v-80">
+      <div class="container">
+        <div class="grid-2 flex-center gap-60">
+          <div>
+            <img src="assets/placeholder.jpg" class="radius-lg shadow-lg" style="width: 100%; aspect-ratio: 4/5; object-fit: cover;">
+          </div>
+          <div>
+            <div class="badge" style="background: var(--surface-2); color: var(--primary); margin-bottom: 20px;">Our Story</div>
+            <h2 style="font-size: 40px; line-height: 1.2; margin-bottom: 25px;">Helping Millions Find Their Dream Home.</h2>
+            <p class="text-muted margin-bottom-20">Founded in 2025, Housify was born out of a simple observation: real estate doesn't have to be complicated. We combined cutting-edge technology with a human-centric approach to build a platform that is transparent, fast, and truly premium.</p>
+            <p class="text-muted">Our mission is to empower every buyer, seller, and renter with the data and tools they need to make the best decisions for their future.</p>
+            
+            <div class="grid-2 margin-top-40">
+              <div>
+                <h3 style="font-size: 32px; color: var(--primary);">15K+</h3>
+                <p class="small text-muted fw-bold">Properties Listed</p>
+              </div>
+              <div>
+                <h3 style="font-size: 32px; color: var(--primary);">8K+</h3>
+                <p class="small text-muted fw-bold">Happy Families</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer padding-v-60 bg-white border-top">
+    <div class="container text-center">
+       <p>© 2025 Housify. Built with passion for better living.</p>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/utils.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', initNavbar);</script>
+</body>
+</html>

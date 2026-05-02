@@ -1,0 +1,10 @@
+node_modules/
+housify-backend/node_modules/
+.env
+housify-backend/.env
+package-lock.json
+housify-backend/package-lock.json
+uploads/
+housify-backend/uploads/
+.DS_Store
+Thumbs.db

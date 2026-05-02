@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/housify-backend/server.js" },
+    { "source": "/uploads/(.*)", "destination": "/housify-backend/uploads/$1" },
+    { "source": "/", "destination": "/housify-frontend/index.html" },
+    { "source": "/(.*)", "destination": "/housify-frontend/$1" }
+  ]
+}

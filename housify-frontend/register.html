@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Housify</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+  <div class="auth-wrapper">
+    
+    <div class="auth-side-image" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800')">
+      <div class="auth-image-overlay"></div>
+      <div class="auth-image-content">
+        <a href="index.html" class="auth-logo">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          Housify
+        </a>
+        <p class="auth-quote">"Join thousands of happy families finding their perfect homes."</p>
+      </div>
+    </div>
+
+    <div class="auth-side-form flex-center">
+      <div class="auth-card register-card">
+        <div class="auth-header">
+          <h1>Create Account</h1>
+          <p>Join Housify today</p>
+        </div>
+
+        <form id="register-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <div class="input-icon-wrap">
+                <i class="fas fa-user"></i>
+                <input type="text" id="name" placeholder="John Doe" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <div class="input-icon-wrap">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" placeholder="john@example.com" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number (Optional)</label>
+            <div class="input-icon-wrap">
+              <i class="fas fa-phone"></i>
+              <input type="text" id="phone" placeholder="+91 98765 43210">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-icon-wrap">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="password" placeholder="Min. 8 characters" required>
+              <button type="button" class="pw-toggle" onclick="togglePassword('password')"><i class="fas fa-eye"></i></button>
+            </div>
+            
+            <div class="strength-meter">
+               <div class="strength-bar"><div class="fill" id="strength-fill"></div></div>
+               <span id="strength-text" class="text-muted">Too Weak</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <div class="input-icon-wrap">
+              <i class="fas fa-shield-alt"></i>
+              <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+              <i id="match-icon" class="fas fa-check-circle match-icon hidden"></i>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>I am a:</label>
+            <div class="role-selector">
+              <div class="role-card active" data-role="buyer">
+                <div class="r-icon"><i class="fas fa-shopping-cart"></i></div>
+                <span>Buyer</span>
+                <p>Buy or rent properties</p>
+                <div class="check"><i class="fas fa-check"></i></div>
+              </div>
+              <div class="role-card" data-role="seller">
+                <div class="r-icon"><i class="fas fa-tag"></i></div>
+                <span>Seller</span>
+                <p>List my property</p>
+                <div class="check"><i class="fas fa-check"></i></div>
+              </div>
+              <div class="role-card" data-role="agent">
+                <div class="r-icon"><i class="fas fa-user-tie"></i></div>
+                <span>Agent</span>
+                <p>Manage multiple listings</p>
+                <div class="check"><i class="fas fa-check"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-accent w-100 btn-auth" id="register-btn">
+            <span class="btn-text">Create Account</span>
+            <div class="btn-spinner hidden"></div>
+          </button>
+
+          <p class="auth-footer">Already have an account? <a href="login.html">Login →</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

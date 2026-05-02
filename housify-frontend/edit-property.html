@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Property | Housify</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+</head>
+<body class="bg-surface">
+  
+  <nav class="navbar scrolled">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">Housify</a>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+      <div class="nav-auth"></div>
+    </div>
+  </nav>
+
+  <main class="padding-v-60">
+    <div class="container">
+      <div class="max-800 margin-auto">
+        <header class="margin-bottom-40 text-center">
+           <h1 id="page-title">Edit Property</h1>
+           <p class="text-muted">Update your listing details below</p>
+        </header>
+
+        <div class="stepper margin-bottom-40">
+           <div class="step active" data-step="1">1<span class="step-lbl">Basic Info</span></div>
+           <div class="step" data-step="2">2<span class="step-lbl">Location</span></div>
+           <div class="step" data-step="3">3<span class="step-lbl">Images</span></div>
+           <div class="step" data-step="4">4<span class="step-lbl">Amenities</span></div>
+        </div>
+
+        <div class="bg-white padding-40 radius-lg shadow-sm">
+          <form id="property-form">
+            
+             <div class="step-content open" id="step-1">
+              <div class="form-group">
+                <label>Property Title</label>
+                <input type="text" id="prop-title" required>
+              </div>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Purpose</label>
+                  <select id="prop-purpose" required>
+                    <option value="sale">For Sale</option>
+                    <option value="rent">For Rent</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Property Type</label>
+                  <select id="prop-type" required>
+                    <option value="apartment">Apartment</option>
+                    <option value="house">House</option>
+                    <option value="villa">Villa</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Price (₹)</label>
+                  <input type="number" id="prop-price" required>
+                </div>
+                <div class="form-group">
+                  <label>Area (Sq. Ft.)</label>
+                  <input type="number" id="prop-area" required>
+                </div>
+              </div>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>BHK</label>
+                  <input type="number" id="prop-bhk" min="1">
+                </div>
+                <div class="form-group">
+                  <label>Bathrooms</label>
+                  <input type="number" id="prop-bath" min="1">
+                </div>
+                <div class="form-group">
+                  <label>Furnished Status</label>
+                  <select id="prop-furnished">
+                    <option value="unfurnished">Unfurnished</option>
+                    <option value="semi-furnished">Semi-Furnished</option>
+                    <option value="furnished">Fully Furnished</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Description</label>
+                <textarea id="prop-desc" rows="5" required></textarea>
+              </div>
+              <div class="flex-end margin-top-20">
+                <button type="button" class="btn btn-primary next-step" data-next="2">Next Step →</button>
+              </div>
+            </div>
+
+            <div class="step-content" id="step-2">
+              <div class="form-group">
+                <label>City</label>
+                <input type="text" id="prop-city" required>
+              </div>
+              <div class="form-group">
+                <label>Complete Address</label>
+                <input type="text" id="prop-location" required>
+              </div>
+              <div class="flex-between margin-top-40">
+                <button type="button" class="btn btn-outline prev-step" data-prev="1">← Back</button>
+                <button type="button" class="btn btn-primary next-step" data-next="3">Next Step →</button>
+              </div>
+            </div>
+
+            <div class="step-content" id="step-3">
+              <div class="upload-area" id="drop-zone">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h3>Upload More Images</h3>
+                <input type="file" id="file-input" multiple accept="image/*" class="hidden">
+              </div>
+              <div id="image-preview-grid" class="preview-grid flex gap-15 margin-top-20 wrap"></div>
+              <div class="flex-between margin-top-40">
+                <button type="button" class="btn btn-outline prev-step" data-prev="2">← Back</button>
+                <button type="button" class="btn btn-primary next-step" data-next="4">Next Step →</button>
+              </div>
+            </div>
+
+            <div class="step-content" id="step-4">
+              <div class="checkbox-grid">
+                <label class="check-container">Swiming Pool <input type="checkbox" name="amenities" value="pool"><span class="checkmark"></span></label>
+                <label class="check-container">Dedicated Parking <input type="checkbox" name="amenities" value="parking"><span class="checkmark"></span></label>
+                <label class="check-container">Power Backup <input type="checkbox" name="amenities" value="powerBackup"><span class="checkmark"></span></label>
+                <label class="check-container">Security <input type="checkbox" name="amenities" value="security"><span class="checkmark"></span></label>
+              </div>
+              <div class="flex-between margin-top-40">
+                <button type="button" class="btn btn-outline prev-step" data-prev="3">← Back</button>
+                <button type="submit" class="btn btn-accent" id="submit-btn"><span class="btn-text">Update Listing</span></button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <style>
+    .stepper { display: flex; justify-content: space-between; }
+    .step { flex: 1; text-align: center; position: relative; font-weight: 800; border-bottom: 4px solid var(--border); padding-bottom: 10px; color: var(--text-muted); }
+    .step.active { border-color: var(--primary); color: var(--primary); }
+    .step-lbl { display: block; font-size: 11px; text-transform: uppercase; font-weight: 600; margin-top: 5px; }
+    .step-content { display: none; }
+    .step-content.open { display: block; animation: fadeIn 0.4s ease; }
+    .upload-area { border: 2px dashed var(--border); padding: 50px; text-align: center; border-radius: var(--radius-lg); cursor: pointer; }
+    .preview-item { width: 120px; height: 100px; border-radius: 8px; overflow: hidden; }
+    .preview-item img { width: 100%; height: 100%; object-fit: cover; }
+  </style>
+
+  <script src="js/api.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/add-property.js"></script>
+</body>
+</html>
