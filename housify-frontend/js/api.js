@@ -1,6 +1,6 @@
 const BASE_URL = window.location.origin.includes('localhost') || window.location.origin.includes('127.0.0.1')
   ? 'http://127.0.0.1:5000/api'
-  : 'https://housifyfs-production.up.railway.app/api';
+  : '/api';
 const PLACEHOLDER_IMG = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80';
 
 async function apiFetch(endpoint, options = {}) {
